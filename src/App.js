@@ -1,23 +1,27 @@
 import { IonApp, IonContent, IonHeader, IonInput, IonItem, IonLabel, IonList, IonTitle, IonToolbar } from '@ionic/react';
 import { useState } from 'react';
 import BiorythmCard from './components/BiorhythmCard';
+import { useStoredState } from './lib/hooks';
 
 function getToday () {
   return new Date().toISOString().slice(0, 'yyyy-mm-dd'.length);
 }
 
 function App() {
-  const [birthDate, setBirthDate] = useState('');
+  const [birthDate, setBirthDate] = useStoredState('birthDate', '');
   const [targetDate, setTargetDate] = useState(getToday);
 
   return (
     <IonApp>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Biorythms</IonTitle>
+          <IonTitle>Biorythm Calculator</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
+              {Boolean(birthDate) && (
+                <BiorythmCard birthDate={birthDate} targetDate={targetDate} />
+              )}
         <IonList>
           <IonItem>
             <IonLabel position='fixed'>
@@ -36,7 +40,6 @@ function App() {
             />
           </IonItem>
         </IonList>
-        <BiorythmCard targetDate={targetDate} />
       </IonContent>
     </IonApp>
   );
