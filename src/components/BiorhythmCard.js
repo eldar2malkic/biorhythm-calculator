@@ -16,7 +16,7 @@ function BiorythmCard({ birthDate, targetDate }) {
                 <IonCardTitle>{formatDate(targetDate)}</IonCardTitle>
             </IonCardHeader>
             <IonCardContent>
-                <BiorythmChart/>
+                <BiorythmChart birthDate={birthDate} targetDate={targetDate} />
                 <p>Physical: {biorythms.physical.toFixed(4)}</p>
                 <p>Emotional: {biorythms.emotional.toFixed(4)}</p>
                 <p>Intellectual: {biorythms.intellectual.toFixed(4)}</p>
