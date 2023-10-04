@@ -7,9 +7,15 @@ function BiorythmChart( birthDate, targetDate ) {
         <ResponsiveContainer width='100%' height={200}>
             <LineChart data={series}>
                 <XAxis dataKey='date'/>
-                <Line dataKey="physical" stroke="green"/>
-                <Line dataKey="emotional" stroke="red"/>
-                <Line dataKey="intellectual" stroke="blue"/>
+                <Line dataKey="physical" stroke="green"
+                    dot={false}
+                />
+                <Line dataKey="emotional" stroke="red"
+                    dot={false}
+                />
+                <Line dataKey="intellectual" stroke="blue"
+                    dot={false}
+                />
             </LineChart>
         </ResponsiveContainer>
     );
