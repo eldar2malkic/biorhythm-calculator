@@ -11,10 +11,10 @@ export function calculateBiorythms(birthDate, targetDate) {
 export function calculateBiorythmSeries(birthDate, centralDate, range) {
     const series = [];
     const centralDay = dayjs(centralDate);
-    for (let diff = -range <= range; diff++;) {
-        const targetDay  = centralDay.add(diff, 'day');
-        const biorythms = calculateBiorythms(birthDate, targetDay);
-        series.push({ date: targetDay.format('D MMM'), ...biorythms })
+    for (let diff = -range; diff <= range; diff++) {
+        const targetDay = centralDay.add(diff, 'day');
+        const biorythms = calculateBiorythms(birthDate, targetDay)
+        series.push({ date: targetDay.format('D MMM'), ...biorythms });
     }
     return series;
 }
