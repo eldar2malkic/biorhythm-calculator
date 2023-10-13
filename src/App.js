@@ -33,11 +33,16 @@ function App() {
           </IonItem>
           <IonItem>
             <IonLabel position='fixed'>
-              Target Date
+              Target Date:
               </IonLabel>
             <IonInput type='date' value={targetDate} 
               onIonChange={(event) => setTargetDate(event.detail.value)}
             />
+          </IonItem>
+          <IonItem>
+          <IonLabel position='fixed'>
+              Format:M/D/Y
+              </IonLabel>
           </IonItem>
         </IonList>
       </IonContent>

@@ -1,15 +1,25 @@
-import { Line, LineChart, ResponsiveContainer, XAxis } from "recharts";
+import { CartesianGrid, Line, LineChart, ReferenceLine, ResponsiveContainer, XAxis } from "recharts";
 import { calculateBiorythmSeries } from "../lib/biorythms";
 
-function BiorythmChart( birthDate, targetDate ) {
-    const series = calculateBiorythmSeries(birthDate, targetDate, 3);
+function BiorythmChart({ birthDate, targetDate  }) {
+    const series = calculateBiorythmSeries(birthDate, targetDate, 15);
     return (
         <ResponsiveContainer width='100%' height={200}>
             <LineChart data={series}>
-                <XAxis dataKey='date'/>
-                <Line dataKey="physical" stroke="green"/>
-                <Line dataKey="emotional" stroke="red"/>
-                <Line dataKey="intellectual" stroke="blue"/>
+                <CartesianGrid vertical={false} strokeDasharray="2 4" />
+                <XAxis dataKey='date' 
+                ticks={[series[3].date, series[15].date, series[27].date]}
+                />
+                <ReferenceLine x={series[15].date}/>
+                <Line dataKey="physical" stroke="green"
+                dot={false} type="natural"
+                />
+                <Line dataKey="emotional" stroke="red"
+                dot={false} type="natural"
+                />
+                <Line dataKey="intellectual" stroke="blue"
+                dot={false} type="natural"
+                />
             </LineChart>
         </ResponsiveContainer>
     );

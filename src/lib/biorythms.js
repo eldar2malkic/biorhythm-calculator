@@ -14,7 +14,7 @@ export function calculateBiorythmSeries(birthDate, centralDate, range) {
     for (let diff = -range; diff <= range; diff++) {
         const targetDay = centralDay.add(diff, 'day');
         const biorythms = calculateBiorythms(birthDate, targetDay)
-        series.push({ date: targetDay.format('D MMM'), ...biorythms });
+        series.push({ date: targetDay.format('DD MMM'), ...biorythms });
     }
     return series;
 }

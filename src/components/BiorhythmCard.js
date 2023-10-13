@@ -5,7 +5,7 @@ import BiorythmChart from "./BiorythmChart";
 
 function formatDate(isoString) {
     const day = dayjs(isoString)
-    return day.format('D MMMM YYYY')
+    return day.format('D MM YYYY')
 }
 
 function BiorythmCard({ birthDate, targetDate }) {
@@ -17,9 +17,15 @@ function BiorythmCard({ birthDate, targetDate }) {
             </IonCardHeader>
             <IonCardContent>
                 <BiorythmChart birthDate={birthDate} targetDate={targetDate} />
-                <p>Physical: {biorythms.physical.toFixed(4)}</p>
-                <p>Emotional: {biorythms.emotional.toFixed(4)}</p>
-                <p>Intellectual: {biorythms.intellectual.toFixed(4)}</p>
+                <p>
+                    Physical: {biorythms.physical.toFixed(4)}
+                </p>
+                <p>
+                    Emotional: {biorythms.emotional.toFixed(4)}
+                </p>
+                <p>
+                    Intellectual: {biorythms.intellectual.toFixed(4)}
+                </p>
             </IonCardContent>
         </IonCard>
     );
